@@ -1,0 +1,153 @@
+.custom-card-process {
+
+    border: 0 !important;
+
+    height: 100%;
+
+}
+
+
+
+.card-img-top {
+
+    max-width: 200px;
+
+}
+
+
+
+.process-image {
+
+    background-color: #fff;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    padding: 10px 0;
+
+}
+
+
+
+.process-counter-number {
+
+    width: 60px;
+
+    height: 60px;
+
+    line-height: 60px;
+
+    border-radius: 50%;
+
+    text-align: center;
+
+    font-size: 26px;
+
+    font-weight: 600;
+
+    background-color: #efefef;
+
+    margin-bottom: 0;
+
+    color: var(--secondary);
+
+}
+
+
+
+.custom-card-process .custom-card-courses-author {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    right: 20px;
+
+}
+
+
+
+.custom-form-style-1 select {
+
+    height: calc(1.8em + 1.85rem + 2px);
+
+    padding: 15.6px 20px;
+
+    padding: 0.975rem 1.25rem;
+
+    background-color: var(--grey-100) !important;
+
+    border-color: var(--grey-100) !important;
+
+    line-height: 1.5 !important;
+
+}
+
+
+
+.form-select:focus {
+
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+
+    border-color: var(--grey-500);
+
+}
+
+.color-red{
+
+    color: red;
+
+}
+/* 29-04-2024 */
+
+.coregistration-wrapper {
+    background-color: #f9f9f9;
+}
+
+.coregistration-image {
+    text-align: center;
+}
+
+.coregistration-image img {
+    max-width: 350px;
+    width: 100%;
+}
+
+.offwall-section {
+    padding: 80px 0;
+}
+
+.offwall-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    height: calc(100% - 24px);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.offwall-card-image {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.offwall-card-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.offwall-card-description {
+    margin-bottom: 24px;
+}
+
+@media (max-width: 991px) {
+    .offwall-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width:767px) {
+    .offwall-section {
+        padding: 50px 0;
+    }
+}
