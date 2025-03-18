@@ -49,6 +49,107 @@
 
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="public/css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<style>
+    .container {
+    max-width: 800px;
+}
+
+/* Custom Form Styling */
+.form-container {
+    background: #2D2254;
+    padding: 30px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background: #ddd;
+    border-radius: 50px;
+    padding: 3px;
+    margin-bottom: 20px;
+}
+
+.progress-bar-custom {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+    border-radius: 50px;
+    position: relative;
+}
+
+.progress-fill {
+    width: 33%;
+    height: 100%;
+    background: linear-gradient(to right, #FF4D4D, #5B1F94);
+    border-radius: 50px;
+    transition: width 0.4s ease;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+/* Buttons */
+.btn-group-custom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.back-btn {
+    background: #FF4D4D;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.next-btn, .submit-btn {
+    background: #5B1F94;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* Hide non-active steps */
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+.que{
+    text-align: start;
+}
+</style>
 
 </head>
 
@@ -174,7 +275,7 @@
             </div>
 
         </header>
-        <div role="main" class="main">
+        <div role="main" class="main mb-5">
 
             <section
                 class="page-header page-header-modern page-header-background page-header-background-md custom-bg-color-grey-1 mb-0"
@@ -188,73 +289,93 @@
                 </div>
             </section>
 
-            <section class="section bg-color-tertiary border-0 m-0">
-                <div class="container my-4">
-                    <div class="row mb-4">
-                        <div class="col-lg-6 mx-auto">
-                            <div class="card border-radius-0 bg-color-secondary appear-animation"
-                                data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="350">
-                                <div class="card-body py-5 my-2">
-                                    <div class="row">
-                                        <div class="col px-lg-4">
-                                            <div class="text-left mb-5">
-                                                <h2
-                                                    class="text-color-tertiary font-weight-semi-bold text-3 text-lg-7 line-height-2 mb-2">
-                                                    Have you ever participated in paid surveys or
-opinion platforms before?
-                                                </h2>
-                                            </div>
-                                            <form class="custom-form-style-1 contact-form"
-                                                action="#" method="POST">
-                                                <!-- <div class="contact-form-success alert alert-success d-none mt-4">
-                                                    <strong>Success!</strong> Your register has been sent to us.
-                                                </div>
-                                                <div class="contact-form-error alert alert-danger d-none mt-4">
-                                                    <strong>Error!</strong> There was an error sending your register.
-                                                    <span class="mail-error-message text-1 d-block"></span>
-                                                </div> -->
-                                                <div class="row g-3 mb-2">
-
-                                                </div>
-                                                <div class="row g-3">
-                                                    <div class="form-group col-12 mb-0">
-                                                        <div class="form-check mt-1 mb-2">
-                                                            <input class="form-check-input text-5" type="checkbox" value="option1" id="flexCheckDefault1" name="unsubscribe_options[]">
-                                                            <label class="form-check-label text-5 mt-1 text-color-tertiary for="flexCheckDefault1">
-                                                                Yes
-                                                            </label> 
-                                                        </div>
-                                                        <div class="form-check mt-1 mb-2">
-                                                            <input class="form-check-input text-5" type="checkbox" value="option2" id="flexCheckDefault2" name="unsubscribe_options[]">
-                                                            <label class="form-check-label text-5 mt-1 text-color-tertiary" for="flexCheckDefault2">
-                                                                No
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-                                                
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="container mt-5 mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <!-- Custom Progress Bar -->
+                        <div class="progress-container">
+                            <div class="progress-bar-custom">
+                                <div id="progress-fill" class="progress-fill"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="form-group col-3 mb-0">
-                            <a href="coreg.html"><input type="submit" value="Back"
-                                class="btn btn-primary font-weight-bold d-block btn-px-1 btn-py-2 w-100 " style="font-size: 20px;"
-                                data-loading-text="Loading..."></a>
+            
+                        <!-- Multi-Step Form -->
+                        <div class="form-container">
+                            <form id="multiStepForm">
+                                <!-- Step 1 -->
+                                <div class="form-step active">
+                                    <h4 class="que">What types of rewards are most appealing to you?</h4>
+                                    <div class="checkbox-group">
+                                        <label><input type="checkbox"> Gift Cards</label>
+                                        <label><input type="checkbox"> Cash</label>
+                                        <label><input type="checkbox"> Discounts</label>
+                                        <label><input type="checkbox"> Other</label>
+                                    </div>
+            
+                                    <div class="btn-group-custom">
+                                        <button type="button" class="btn back-btn">Back</button>
+                                        <button type="button" class="btn next-btn">Next</button>
+                                    </div>
+                                </div>
+            
+                                <!-- Additional Steps (Hidden Initially) -->
+                                <div class="form-step active">
+                                    <h4 class="que">Have you ever participated in paid surveys or opinion platforms before?</h4>
+                                    <div class="checkbox-group">
+                                        <label><input type="checkbox"> Yes</label>
+                                        <label><input type="checkbox"> No</label>
+                                    </div>
+            
+                                    <div class="btn-group-custom">
+                                        <button type="button" class="btn back-btn">Back</button>
+                                        <button type="button" class="btn next-btn">Next</button>
+                                    </div>
+                                </div>
+                                <div class="form-step active">
+                                    <h4 class="que">What topics or industries do you feel most comfortable sharing your opinions about?</h4>
+                                    <div class="checkbox-group">
+                                        <label><input type="checkbox"> Technology</label>
+                                        <label><input type="checkbox"> Fashion</label>
+                                        <label><input type="checkbox"> Health</label>
+                                        <label><input type="checkbox"> Entertainment</label>
+                                    </div>
+            
+                                    <div class="btn-group-custom">
+                                        <button type="button" class="btn back-btn">Back</button>
+                                        <button type="button" class="btn next-btn">Next</button>
+                                    </div>
+                                </div>
+                                <div class="form-step active">
+                                    <h4 class="que">What is your age group?</h4>
+                                    <div class="checkbox-group">
+                                        <label><input type="checkbox"> 18–24</label>
+                                        <label><input type="checkbox"> 25–34</label>
+                                        <label><input type="checkbox"> 35-45</label>
+                                        <label><input type="checkbox"> 45-60</label>
+                                    </div>
+            
+                                    <div class="btn-group-custom">
+                                        <button type="button" class="btn back-btn">Back</button>
+                                        <button type="button" class="btn next-btn">Next</button>
+                                    </div>
+                                </div>
+            
+                                <!-- Submit Step -->
+                                <div class="form-step">
+                                    <h4>Confirmation</h4>
+                                    <input type="checkbox">
+                                    <p>I've Reviewed my choices before submitting. According to me it's correct.</p>
+                                    <div class="btn-group-custom">
+                                        <button type="button" class="btn back-btn">Back</button>
+                                        <button type="submit" class="btn submit-btn">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group col-3 mb-0">
-                            <a href="coreg3.html"><input type="submit" value="Next"
-                                class="btn btn-secondary font-weight-bold d-block btn-px-1 btn-py-2 w-100 " style="font-size: 20px;"
-                                data-loading-text="Loading..."></a>
-                        </div>
+            
                     </div>
                 </div>
-            </section>
+            </div>
 
         </div>
         <footer id="footer" class="footer-reveal bg-color-secondary border-0 mt-0">
@@ -404,7 +525,69 @@ opinion platforms before?
     </div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script >
+    document.addEventListener("DOMContentLoaded", function () {
+    const formSteps = document.querySelectorAll(".form-step");
+    const progressFill = document.getElementById("progress-fill");
+    const nextBtns = document.querySelectorAll(".next-btn");
+    const prevBtns = document.querySelectorAll(".back-btn");
+    let currentStep = 0;
 
+    function updateForm() {
+        formSteps.forEach((step, index) => {
+            step.classList.toggle("active", index === currentStep);
+        });
+        progressFill.style.width = `${((currentStep + 1) / formSteps.length) * 100}%`;
+    }
+
+    function validateStep() {
+        const activeStep = formSteps[currentStep];
+        const inputs = activeStep.querySelectorAll("input[type='checkbox'], select, textarea");
+        let isValid = false;
+
+        inputs.forEach((input) => {
+            if ((input.type === "checkbox" && input.checked) || (input.type !== "checkbox" && input.value.trim() !== "")) {
+                isValid = true;
+            }
+        });
+
+        if (!isValid) {
+            alert("Please fill in all required fields before proceeding.");
+        }
+
+        return isValid;
+    }
+
+    nextBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            if (validateStep()) {
+                currentStep++;
+                updateForm();
+            }
+        });
+    });
+
+    prevBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            currentStep--;
+            updateForm();
+        });
+    });
+
+    document.getElementById("multiStepForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (validateStep()) {
+            window.location.href = "offerwall.html"; // Redirect to result.html
+        }
+    });
+
+
+    updateForm();
+});
+
+
+</script>
     <!-- Vendor -->
 
     <script src="public/vendor/plugins/js/plugins.min.js"></script>

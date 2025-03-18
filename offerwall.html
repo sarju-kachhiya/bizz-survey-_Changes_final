@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bizz Survey</title>
+    <title>Unsubscribe | Bizz Survey</title>
 
     <meta name="description"
         content="Easily manage your email subscriptions with our easily navigable unsubscribe website." />
@@ -49,6 +49,144 @@
 
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="public/css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .bdy {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f8f9fa;
+    overflow: hidden; /* Prevents extra white space */
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh; /* Ensure full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: visible; /* Ensures side slides are visible */
+}
+
+.slide {
+    margin-top: 100px;
+    position: absolute;
+    width: 85%; /* Increase width to make the edges visible */
+    max-width: 900px; /* Adjust size as needed */
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+.carousel-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Adds spacing between slides */
+    transform: scale(0.9); /* Shrinks slides slightly */
+}
+
+
+        .slide.active {
+            transform: translateX(0) scale(1);
+            opacity: 1;
+            z-index: 3;
+        }
+        .slide:not(.active) {
+    opacity: 0.6; /* Make side slides partially visible */
+    transform: scale(0.85); /* Shrink side slides slightly */
+}
+
+        .slide.next {
+            transform: translateX(100%) scale(0.8);
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        .slide.prev {
+            transform: translateX(-100%) scale(0.8);
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        /* Buttons inside slides */
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            font-size: 18px;
+            padding: 10px 10px;
+            min-width: 120px;
+            border-radius: 5px;
+        }
+
+        /* Navigation Arrows */
+        .arrow1 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            color: gray;
+            z-index: 5;
+            background: #332859;
+            /* border-radius: 50%; */
+            padding: 10px 15px;
+        }
+
+        .arrow1:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .left-arrow {
+            left: 20px;
+        }
+
+        .right-arrow {
+            right: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .carousel-container {
+                height: 70vh;
+            }
+
+            .slide {
+                width: 90%;
+                max-width: 600px;
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                font-size: 16px;
+                padding: 8px 12px;
+            }
+
+            .arrow1 {
+                font-size: 30px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
 
 </head>
 
@@ -174,89 +312,83 @@
             </div>
 
         </header>
-        <div role="main" class="main">
 
-            <section
-                class="page-header page-header-modern page-header-background page-header-background-md custom-bg-color-grey-1 mb-0"
-                style="background-image: url(public/img/demos/education/backgrounds/page-header.jpg); background-position: 100% 100%;">
-                <div class="container">
-                    <div class="row mt-5">
-                        <div class="col align-self-center p-static text-center">
-                            <h1 class="font-weight-bold text-color-secondary text-8 text-lg-10">Try A Demo</h1>
+
+        <div class="bdy">
+            <div class="carousel-container" style="margin-top: 150px; margin-bottom: 180px;">
+                <!-- Slide 1 -->
+                <div class="slide active" style="background: url('public/img/demos/education/slides/slide-1-bg.jpg') no-repeat center/cover;">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 text-center">
+                            <img src="public/img/demos/education/slides/slide-1-1.png" alt="Illustration" class="img-fluid">
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section bg-color-tertiary border-0 m-0">
-                <div class="container my-4">
-                    <div class="row mb-4">
-                        <div class="col-lg-6 mx-auto">
-                            <div class="card border-radius-0 bg-color-secondary appear-animation"
-                                data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="350">
-                                <div class="card-body py-5 my-2">
-                                    <div class="row">
-                                        <div class="col px-lg-4">
-                                            <div class="text-left mb-5">
-                                                <h2
-                                                    class="text-color-tertiary font-weight-semi-bold text-3 text-lg-7 line-height-2 mb-2">
-                                                    Have you ever participated in paid surveys or
-opinion platforms before?
-                                                </h2>
-                                            </div>
-                                            <form class="custom-form-style-1 contact-form"
-                                                action="#" method="POST">
-                                                <!-- <div class="contact-form-success alert alert-success d-none mt-4">
-                                                    <strong>Success!</strong> Your register has been sent to us.
-                                                </div>
-                                                <div class="contact-form-error alert alert-danger d-none mt-4">
-                                                    <strong>Error!</strong> There was an error sending your register.
-                                                    <span class="mail-error-message text-1 d-block"></span>
-                                                </div> -->
-                                                <div class="row g-3 mb-2">
-
-                                                </div>
-                                                <div class="row g-3">
-                                                    <div class="form-group col-12 mb-0">
-                                                        <div class="form-check mt-1 mb-2">
-                                                            <input class="form-check-input text-5" type="checkbox" value="option1" id="flexCheckDefault1" name="unsubscribe_options[]">
-                                                            <label class="form-check-label text-5 mt-1 text-color-tertiary for="flexCheckDefault1">
-                                                                Yes
-                                                            </label> 
-                                                        </div>
-                                                        <div class="form-check mt-1 mb-2">
-                                                            <input class="form-check-input text-5" type="checkbox" value="option2" id="flexCheckDefault2" name="unsubscribe_options[]">
-                                                            <label class="form-check-label text-5 mt-1 text-color-tertiary" for="flexCheckDefault2">
-                                                                No
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-                                                
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="col-md-7 text-center text-white">
+                            <h2 class="fw-bold" style="color: black;">Slide 1: Welcome</h2>
+                            <p class="sub-text" style="color: gray; font-size: medium;">Explore exciting learning opportunities with us.</p>
+                            <div class="btn-container">
+                                <button class="btn btn-success">Agree</button>
+                                <button class="btn btn-danger">Disagree</button>
                             </div>
                         </div>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="form-group col-3 mb-0">
-                            <a href="coreg.html"><input type="submit" value="Back"
-                                class="btn btn-primary font-weight-bold d-block btn-px-1 btn-py-2 w-100 " style="font-size: 20px;"
-                                data-loading-text="Loading..."></a>
+                </div>
+    
+                <!-- Slide 2 -->
+                <div class="slide next" style="background: url('public/img/demos/education/slides/slide-1-bg.jpg') no-repeat center/cover;">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 text-center">
+                            <img src="public/img/demos/education/slides/slide-1-1.png" alt="Illustration" class="img-fluid">
                         </div>
-                        <div class="form-group col-3 mb-0">
-                            <a href="coreg3.html"><input type="submit" value="Next"
-                                class="btn btn-secondary font-weight-bold d-block btn-px-1 btn-py-2 w-100 " style="font-size: 20px;"
-                                data-loading-text="Loading..."></a>
+                        <div class="col-md-7 text-center text-white">
+                            <h2 class="fw-bold" style="color: black;">Slide 2: Learn</h2>
+                            <p class="sub-text" style="color: gray; font-size: medium;">Discover new knowledge and skills.</p>
+                            <div class="btn-container">
+                                <button class="btn btn-success">Agree</button>
+                                <button class="btn btn-danger">Disagree</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+    
+                <!-- Slide 3 -->
+                <div class="slide next" style="background: url('public/img/demos/education/slides/slide-1-bg.jpg') no-repeat center/cover;">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 text-center">
+                            <img src="public/img/demos/education/slides/slide-1-1.png" alt="Illustration" class="img-fluid">
+                        </div>
+                        <div class="col-md-7 text-center text-white">
+                            <h2 class="fw-bold" style="color: black;">Slide 3: Grow</h2>
+                            <p class="sub-text" style="color: gray; font-size: medium;">Enhance your career and knowledge.</p>
+                            <div class="btn-container">
+                                <button class="btn btn-success">Agree</button>
+                                <button class="btn btn-danger">Disagree</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Slide 4 -->
+                <div class="slide next" style="background: url('public/img/demos/education/slides/slide-1-bg.jpg') no-repeat center/cover;">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 text-center">
+                            <img src="public/img/demos/education/slides/slide-1-1.png" alt="Illustration" class="img-fluid">
+                        </div>
+                        <div class="col-md-7 text-center text-white">
+                            <h2 class="fw-bold" style="color: black;">Slide 4: Succeed</h2>
+                            <p class="sub-text" style="color: gray; font-size: medium;">Achieve your dreams with us.</p>
+                            <div class="btn-container">
+                                <button class="btn btn-success" onclick="window.location.href='result.html'">Agree</button>
+                                <button class="btn btn-danger" onclick="window.location.href='result.html'">Disagree</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
 
+            </div>
         </div>
+
+
         <footer id="footer" class="footer-reveal bg-color-secondary border-0 mt-0">
 
             <div class="container py-3 py-lg-5">
@@ -436,7 +568,51 @@ opinion platforms before?
 
 
     <!-- <script src="https://www.bizzsurvey.com/assets/public/js/contact_us.js"></script> -->
-    <script src=""></script>
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+    
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove("active", "next", "prev");
+                if (i === index) {
+                    slide.classList.add("active");
+                } else if (i < index) {
+                    slide.classList.add("prev");
+                } else {
+                    slide.classList.add("next");
+                }
+            });
+        }
+    
+        function nextSlide() {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }
+        }
+    
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        }
+    
+        // Add event listeners to buttons
+        document.querySelectorAll(".btn-success").forEach((button, index) => {
+            button.addEventListener("click", nextSlide);
+        });
+    
+        document.querySelectorAll(".btn-danger").forEach((button, index) => {
+            button.addEventListener("click", nextSlide);
+        });
+    
+        // Show the first slide initially
+        showSlide(currentSlideIndex);
+    </script>
+    
+    
 
 </body>
 
