@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validating</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="public/img/new_favicon.png" type="image/x-icon" />
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, niitial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <!-- Web Fonts  -->
+    <link id="googleFonts"
+        href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light&display=swap"
+        rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="public/vendor/animate/animate.compat.css">
+    <link rel="stylesheet" href="public/vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="public/vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="public/vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="public/vendor/magnific-popup/magnific-popup.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="public/css/theme.css">
+    <link rel="stylesheet" href="public/css/theme-elements.css">
+    <link rel="stylesheet" href="public/css/theme-blog.css">
+    <link rel="stylesheet" href="public/css/theme-shop.css">
+
+    <!-- Demo CSS -->
+    <link rel="stylesheet" href="public/css/demos/demo-education.css">
+
+    <!-- Skin CSS -->
+    <link id="skinCSS" rel="stylesheet" href="public/css/skins/skin-education.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="public/css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Fullscreen Loader */
+        .loader-container {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 9999;
+        }
+
+        /* Logo Animation */
+        .logo {
+            width: 200px;
+            height: auto;
+            animation: fadeIn 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0.5;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Validation Message */
+        .validation-message {
+            position: absolute;
+            bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Static "Validating" with Dynamic Word */
+        .static-text {
+            font-weight: bold;
+        }
+        
+        .dynamic-text {
+            font-weight: bold;
+            color: #007BFF;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            from { opacity: 1; }
+            to { opacity: 0.6; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="loader-container">
+    <img src="public/img/new-logo.png" alt="Logo" class="logo">
+    <div class="validation-message">
+        <span class="static-text">Validating </span>
+        <span class="dynamic-text" id="dynamicText">Name</span>
+        <span class="static-text">.....</span>
+    </div>
+</div>
+
+<script>
+    const attributes = ["Name", "Email", "Address", "Zip Code", "Phone Number", "Education"];
+    let index = 0;
+    
+    function updateValidationAttribute() {
+        if (index < attributes.length) {
+            document.getElementById("dynamicText").innerText = attributes[index];
+            index++;
+            setTimeout(updateValidationAttribute, 500); // Change every second
+        } else {
+            window.location.href = "Coreg5.html"; // Redirect after completing one cycle
+        }
+    }
+
+    setTimeout(updateValidationAttribute, 1000);
+</script>
+
+</body>
+</html>
